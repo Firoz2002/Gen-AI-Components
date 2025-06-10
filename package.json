@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@langchain/community": "^0.3.43",
-    "@langchain/core": "^0.3.56",
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.57",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
