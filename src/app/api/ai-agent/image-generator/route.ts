@@ -44,12 +44,12 @@ export async function POST(req: NextRequest) {
         // steps: 3,
         response_format: "base64",
     });
-
+    
     const b64_json: string = response.data[0].b64_json as string;
-    const blob = new Blob([b64_json], { type: 'image/png' });
-    const url = URL.createObjectURL(blob);
-
-    return NextResponse.json({ image: url }, { status: 200, headers: corsHeaders });
+    return NextResponse.json({ image: `data:image/png;base64,${b64_json}` }, { 
+        status: 200, 
+        headers: corsHeaders 
+    });
   } catch (error) {
     console.error('Error generating image:', error);
 
