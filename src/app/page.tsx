@@ -1,5 +1,8 @@
 "use client";
+//import ImageEditor from '@/components/editors/ImageEditor';
+import AddBlog from '@/components/modals/AddBlog';
 import { useState } from 'react';
+
 
 type ImageResponse = {
   b64_json: string;
@@ -87,6 +90,7 @@ export default function Home() {
           />
         </div>
       )}
+    <AddBlog open={true} onOpenChange={() => {}} onSubmit={async () => {}}/>
     </div>
   );
 }
