@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import DOMPurify from 'dompurify';
 import { useState, useRef, useEffect } from 'react';
-import { Send, X, Bot, Loader2 } from 'lucide-react';
+import { Send, X, Loader2 } from 'lucide-react';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -103,7 +103,7 @@ const Chatbot = ({
           <div className="bg-[#1a3dc2] text-white p-4 rounded-t-xl flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Image src="https://res.cloudinary.com/dv4d9tvcy/image/upload/v1749806434/Favicon-64-x-64_xnyrwy.png" alt="Logo" width={32} height={32} unoptimized priority />
-              <h3 className="font-semibold">Prabisha's Chat Assistant</h3>
+              <h3 className="font-semibold">{"Prabisha's Chat Assistant"}</h3>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
@@ -209,61 +209,5 @@ const Chatbot = ({
     </div>
   );
 };
-
-const styles = `
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes bounce-subtle {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-  
-  @keyframes pulse-slow {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-    }
-  }
-  
-  .dark .animate-pulse-slow {
-    animation: pulse-slow-dark 3s infinite;
-  }
-  
-  @keyframes pulse-slow-dark {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
-    }
-  }
-  
-  .animate-fade-in-up {
-    animation: fade-in-up 0.3s ease-out forwards;
-  }
-  
-  .animate-bounce-subtle {
-    animation: bounce-subtle 2s infinite;
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse-slow 3s infinite;
-  }
-`;
 
 export default Chatbot;

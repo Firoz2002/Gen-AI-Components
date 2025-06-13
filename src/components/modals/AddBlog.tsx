@@ -30,14 +30,14 @@
   ✅ Done!
 */}
 
-
+import { toast } from "sonner";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Editor } from "@tinymce/tinymce-react"
-import { toast } from "sonner"
 import { Bot, Upload, X, Sparkles } from "lucide-react"
 import type { Editor as TinyMCEEditor } from "tinymce"
 
@@ -285,7 +285,8 @@ export default function BlogModal({ open, onOpenChange, onSubmit, initialData = 
               {imagePreview ? (
                 <div className="relative group">
                   <div className="aspect-[2/1] rounded-lg overflow-hidden border bg-muted">
-                    <img
+                    <Image
+                      fill
                       src={imagePreview || "/placeholder.svg"}
                       alt="Banner preview"
                       className="w-full h-full object-cover"
@@ -418,7 +419,7 @@ function TextEditor({ value, editorRef }: TextEditorProps) {
   return (
     <Editor
       apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
-      onInit={(_evt: any, editor: any) => (editorRef.current = editor)}
+      onInit={(_evt: unknown, editor: TinyMCEEditor) => (editorRef.current = editor)}
       initialValue={value}
       init={{
         height: 400,
@@ -451,7 +452,7 @@ function TextEditor({ value, editorRef }: TextEditorProps) {
           "removeformat | help",
         content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         file_picker_types: "image media",
-        file_picker_callback: (callback: (url: string, meta?: { alt?: string }) => void, value: string, meta: Record<string, any>) => {
+        file_picker_callback: (callback: (url: string, meta?: { alt?: string }) => void) => {
           const input = document.createElement("input")
           input.type = "file"
           input.accept = "image/*"
