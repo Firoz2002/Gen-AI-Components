@@ -1,6 +1,5 @@
 "use client";
-//import ImageEditor from '@/components/editors/ImageEditor';
-import AddBlog from '@/components/modals/AddBlog';
+import Chatbot from '@/components/features/Chatbot';
 import { useState } from 'react';
 
 
@@ -90,7 +89,8 @@ export default function Home() {
           />
         </div>
       )}
-    <AddBlog open={true} onOpenChange={() => {}} onSubmit={async () => {}}/>
+
+      <Chatbot />
     </div>
   );
 }
