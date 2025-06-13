@@ -19,7 +19,7 @@ async function callGroq(apiKey: string, prompt: string) {
         messages: [
             {
                 role: "user",
-                content: `You are a helpful assistant that answers questions about the world. ${prompt}`,
+                content: `You are a helpful assistant that answers questions about the world. Give ansers in html format. ${prompt}`,
             },
         ],
         model: "llama-3.3-70b-versatile",

@@ -1,6 +1,31 @@
 "use client";
+
+{/*
+  🔷 Generative AI Chatbot — by Firoz Kamdar 🔷
+
+  This component enables users to interact with a chatbot using generative AI.
+
+  🚀 Steps to Use:
+
+  1️⃣ Install dependencies:
+     - Using npm:
+       npm install lucide-react
+
+     - Using yarn:
+       yarn add lucide-react
+
+  2️⃣ Integrate the component:
+     - To use the chatbot:
+      Added it to layout.tsx
+
+  3️⃣ Configure environment variables in your `.env` file:
+     NEXT_PUBLIC_GROQ_API_KEY=
+     NEXT_PUBLIC_TOGETHERAI_API_KEY=
+
+  ✅ Done!
+*/}
+
 import Image from 'next/image';
-import DOMPurify from 'dompurify';
 import { useState, useRef, useEffect } from 'react';
 import { Send, X, Loader2 } from 'lucide-react';
 
@@ -13,8 +38,6 @@ type ChatbotProps = {
   initialMessage?: string;
   quickQuestions?: string[];
 };
-
-const sanitizedHTML = (html: string) => DOMPurify.sanitize(html);
 
 const Chatbot = ({ 
   initialMessage = "👋 Hello! I'm Prabiha's AI assistant. How can I help you today?",
@@ -158,7 +181,7 @@ const Chatbot = ({
                   >
                     <span 
                       className="text-gray-800 dark:text-gray-200" 
-                      dangerouslySetInnerHTML={{ __html: sanitizedHTML(msg.content) }} 
+                      dangerouslySetInnerHTML={{ __html: msg.content }} 
                     />
                   </div>
                 ))}
@@ -199,7 +222,7 @@ const Chatbot = ({
       ) : (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-white dark:bg-[#1A1A2E] text-blue-600 dark:text-white rounded-full shadow-lg hover:shadow-xl p-2 transition-all duration-300 border-2 border-[#1a3dc2] dark:border-purple-500 animate-pulse-slow relative group"
+          className="bg-white dark:bg-[#1A1A2E] text-blue-600 dark:text-white rounded-full shadow-lg hover:shadow-xl p-3 transition-all duration-300 border-2 border-[#1a3dc2] dark:border-purple-500 relative group"
           aria-label="Open chat assistant"
         >
           <div className="absolute -top-3 -right-2 bg-[#e05a1a] dark:bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-bounce-subtle">Chat</div>
